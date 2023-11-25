@@ -10,7 +10,7 @@ class PersonSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         return Person.objects.create(**validated_data)
 
-class RestaurantSerializer(serializers.Serializer):
+class RestaurantSerializer(serializers.ModelSerializer):
     class Meta:
         model = Restaurant
         fields = ['id','name','country','city','street','typeRestaurant']
@@ -19,11 +19,20 @@ class RestaurantSerializer(serializers.Serializer):
     def create(self, validated_data):
         return Restaurant.objects.create(**validated_data)
 
-class RatingKebabaSerializer(serializers.Serializer):
+class RatingKebabaSerializer(serializers.ModelSerializer):
     class Meta:
         model = RatingKebaba
-        fields = ['id','person','restaurant','meat','sauce','vegetables','additions']
+        fields = ['id','person','restaurant','meat','sauce','vegetables','additions','final_grade']
         read_only_fields=['id']
 
     def create(self, validated_data):
         return RatingKebaba.objects.create(**validated_data)
+
+class RatingZapiekankaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = RatingZapiekanka
+        fields = ['id','person','restaurant','bread','cheese','sauce','additions','final_grade']
+        read_only_fields=['id']
+
+    def create(self, validated_data):
+        return RatingZapiekanka.objects.create(**validated_data)
