@@ -11,4 +11,7 @@ urlpatterns = [
     path('rating/kebab/<int:pk>/', views.RatingKebabaList.as_view()),
     path('rating/zapiekanka', views.RatingZapiekankiList.as_view()),
     path('rating/zapiekanka/<int:pk>/', views.RatingZapiekankiDetail.as_view()),
+    path('restaurant/kebab/<int:pk>/', views.RestaurantRatingKebab.as_view()),
+    path('restaurant/zapiekanka/<int:pk>/', views.RestaurantRatingZapiekanka.as_view()),
+
 ]

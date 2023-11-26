@@ -183,3 +183,21 @@ class RatingZapiekankiDetail(APIView):
         snippet = self.get_object(pk)
         snippet.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+class RestaurantRatingKebab(APIView):
+    """
+    List all RatingKebaba for a specific restaurant (by restaurant id), or create a new RatingKebaba
+    """
+    def get(self, request, pk, format=None):
+        ratings = RatingKebaba.objects.filter(restaurant_id=pk)
+        serializer = RatingKebabaSerializer(ratings, many=True)
+        return Response(serializer.data)
+
+class RestaurantRatingZapiekanka(APIView):
+    """
+    List all RatingKebaba for a specific restaurant (by restaurant id), or create a new RatingKebaba
+    """
+    def get(self, request, pk, format=None):
+        ratings = RatingZapiekanka.objects.filter(restaurant_id=pk)
+        serializer = RatingZapiekankaSerializer(ratings, many=True)
+        return Response(serializer.data)
