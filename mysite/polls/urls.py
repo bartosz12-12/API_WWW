@@ -13,5 +13,6 @@ urlpatterns = [
     path('rating/zapiekanka/<int:pk>/', views.RatingZapiekankiDetail.as_view()),
     path('restaurant/kebab/<int:pk>/', views.RestaurantRatingKebab.as_view()),
     path('restaurant/zapiekanka/<int:pk>/', views.RestaurantRatingZapiekanka.as_view()),
-
+    path('rating/zapiekanka/person/<int:pk>/', views.RatingZapiekankaPerson.as_view()),
+    path('rating/kebab/person/<int:pk>/', views.RatingKebabPerson.as_view()),
 ]

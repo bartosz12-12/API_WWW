@@ -201,3 +201,21 @@ class RestaurantRatingZapiekanka(APIView):
         ratings = RatingZapiekanka.objects.filter(restaurant_id=pk)
         serializer = RatingZapiekankaSerializer(ratings, many=True)
         return Response(serializer.data)
+
+class RatingZapiekankaPerson(APIView):
+    """
+    List all RatingKebaba for a specific restaurant (by restaurant id), or create a new RatingKebaba
+    """
+    def get(self, request, pk, format=None):
+        ratings = RatingZapiekanka.objects.filter(person=pk)
+        serializer = RatingZapiekankaSerializer(ratings, many=True)
+        return Response(serializer.data)
+
+class RatingKebabPerson(APIView):
+    """
+    List all RatingKebaba for a specific restaurant (by restaurant id), or create a new RatingKebaba
+    """
+    def get(self, request, pk, format=None):
+        ratings = RatingKebaba.objects.filter(person=pk)
+        serializer = RatingKebabaSerializer(ratings, many=True)
+        return Response(serializer.data)
